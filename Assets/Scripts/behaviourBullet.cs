@@ -8,6 +8,7 @@ public class behaviourBullet : MonoBehaviour {
     public ConstantForce2D constForce;
     public GameObject explosion;
     private GameObject tank;
+    public int damage;
     
 
     // Use this for initialization
@@ -49,15 +50,22 @@ public class behaviourBullet : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        //print("KOLIZE");
+        print("KOLIZE");
         ContactPoint2D contact = collision.contacts[0];
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
         Vector3 pos = contact.point;
         //GameObject.Find("canon").GetComponent<fire>().fired = false;
         if (collision.gameObject.name == "tankGreen")
-            GameManager.instance.health1 -= 10;
+        {
+            GameManager.instance.health1 -= damage;
+            GameObject.Find("tankGreen").GetComponent<playerStats>().ChangeHealth(damage);
+        }
         else if (collision.gameObject.name == "tankRed")
-            GameManager.instance.health2 -= 10;
+        {
+            GameManager.instance.health2 -= damage;
+            GameObject.Find("tankRed").GetComponent<playerStats>().ChangeHealth(damage);
+
+        }
         Destroy(gameObject);
         Instantiate(explosion, pos, rot);
         if (GameManager.instance.player == 1)

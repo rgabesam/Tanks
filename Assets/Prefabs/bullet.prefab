@@ -92,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   constForce: {fileID: 247369293101766536}
   explosion: {fileID: 1694102470933480, guid: 87e735f06239e5c40a0102935082936f, type: 2}
+  damage: 5
 --- !u!212 &212578564944493088
 SpriteRenderer:
   m_ObjectHideFlags: 1
