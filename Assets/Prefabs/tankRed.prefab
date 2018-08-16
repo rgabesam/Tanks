@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 114671016897581576}
   m_Layer: 0
   m_Name: tankRed
-  m_TagString: Player
+  m_TagString: player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -406,6 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1ef4366bf869a4abe74342bf2b1937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winText: {fileID: 0}
 --- !u!114 &114222034007820024
 MonoBehaviour:
   m_ObjectHideFlags: 1

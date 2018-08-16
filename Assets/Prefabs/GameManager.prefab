@@ -56,6 +56,9 @@ MonoBehaviour:
   player: 1
   playerOne: {fileID: 0}
   playerTwo: {fileID: 0}
+  inGame: 0
+  explosionOfTank: {fileID: 139422, guid: b0c58804b6a5123429b01d07b4620cea, type: 2}
+  winText: {fileID: 0}
 --- !u!114 &114675477061662142
 MonoBehaviour:
   m_ObjectHideFlags: 1

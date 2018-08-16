@@ -8,6 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: c1ce895374591f941a550675214f1a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/tanks.unity
     guid: eb126a7336e52e44f9d3fe7b64c49cb9
+  - enabled: 1
+    path: Assets/Scenes/level1.unity
+    guid: 8c688dd152122d84ba6ed6f654926fb7
+  - enabled: 1
+    path: Assets/Scenes/level2.unity
+    guid: d0799ac8a8902894ba6f4e147f8a56e9
+  - enabled: 1
+    path: Assets/Scenes/level3.unity
+    guid: d0f5c0a63999c4c46b7c8d311b155b8e
+  - enabled: 1
+    path: Assets/Scenes/level4.unity
+    guid: af9559bc3be73fe439cd21646540f36b

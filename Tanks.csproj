@@ -265,6 +265,12 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="TextMeshPro-2017.3-Editor">
+      <HintPath>Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="TextMeshPro-2017.3-Runtime">
+      <HintPath>Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Advertisements">
       <HintPath>C:/Users/René/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
@@ -286,42 +292,21 @@
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/René/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
-    <Reference Include="TextMeshPro-2017.3-Runtime">
-      <HintPath>Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="TextMeshPro-2017.3-Editor">
-      <HintPath>Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Editor.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\delete.cs" />
-    <Compile Include="Assets\Endless2DTerrain\Core\Scripts\Extensions.cs" />
-    <Compile Include="Assets\Endless2DTerrain\Core\Scripts\MeshPiece.cs" />
-    <Compile Include="Assets\Endless2DTerrain\Core\Scripts\PrefabManager.cs" />
-    <Compile Include="Assets\Endless2DTerrain\Core\Scripts\PrefabPool.cs" />
-    <Compile Include="Assets\Endless2DTerrain\Core\Scripts\PrefabRule.cs" />
-    <Compile Include="Assets\Endless2DTerrain\Core\Scripts\RenderQueue.cs" />
-    <Compile Include="Assets\Endless2DTerrain\Core\Scripts\Settings.cs" />
-    <Compile Include="Assets\Endless2DTerrain\Core\Scripts\TerrainDisplayer.cs" />
-    <Compile Include="Assets\Endless2DTerrain\Core\Scripts\TerrainManager.cs" />
-    <Compile Include="Assets\Endless2DTerrain\Core\Scripts\TerrainPiece.cs" />
-    <Compile Include="Assets\Endless2DTerrain\Core\Scripts\TerrainPool.cs" />
-    <Compile Include="Assets\Endless2DTerrain\Core\Scripts\TerrainRule.cs" />
-    <Compile Include="Assets\Endless2DTerrain\Core\Scripts\TransformHelpers.cs" />
-    <Compile Include="Assets\Endless2DTerrain\Core\Scripts\VertexGenerator.cs" />
-    <Compile Include="Assets\Endless2DTerrain\Demos\Scripts\ChaseCamera.cs" />
-    <Compile Include="Assets\Endless2DTerrain\Demos\Scripts\CoinPickup.cs" />
-    <Compile Include="Assets\Endless2DTerrain\Demos\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\behaviourBullet.cs" />
     <Compile Include="Assets\Scripts\BoardManager.cs" />
     <Compile Include="Assets\Scripts\CameraScreenResolution.cs" />
     <Compile Include="Assets\Scripts\canon_move.cs" />
     <Compile Include="Assets\Scripts\deleteObject.cs" />
+    <Compile Include="Assets\Scripts\endOfGame.cs" />
     <Compile Include="Assets\Scripts\fire.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Loader.cs" />
     <Compile Include="Assets\Scripts\mainMenu.cs" />
+    <Compile Include="Assets\Scripts\MapChooseScript.cs" />
     <Compile Include="Assets\Scripts\playerStats.cs" />
+    <Compile Include="Assets\Scripts\shotPower.cs" />
     <Compile Include="Assets\Scripts\tank_move.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
@@ -358,7 +343,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Endless2DTerrain\Demos\Resources\Shaders\VertexColorUnlit.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\LiberationSans - OFL.txt" />

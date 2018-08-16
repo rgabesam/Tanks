@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class behaviourBullet : MonoBehaviour {
 
@@ -9,13 +11,13 @@ public class behaviourBullet : MonoBehaviour {
     public GameObject explosion;
     private GameObject tank;
     public int damage;
-    
+    public Slider slider;
 
     // Use this for initialization
     void Start () {
-        
+        slider = GameObject.Find("navigationPanel").GetComponentInChildren<Slider>();
 
-        float forceLength = 350f;
+        float forceLength = slider.value;
         float forceX;
         float forceY;
         Vector3 axis = Vector3.zero;
@@ -50,19 +52,19 @@ public class behaviourBullet : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        print("KOLIZE");
+        //print("KOLIZE");
         ContactPoint2D contact = collision.contacts[0];
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
         Vector3 pos = contact.point;
         //GameObject.Find("canon").GetComponent<fire>().fired = false;
         if (collision.gameObject.name == "tankGreen")
         {
-            GameManager.instance.health1 -= damage;
+            //GameManager.instance.health1 -= damage;
             GameObject.Find("tankGreen").GetComponent<playerStats>().ChangeHealth(damage);
         }
         else if (collision.gameObject.name == "tankRed")
         {
-            GameManager.instance.health2 -= damage;
+            //GameManager.instance.health2 -= damage;
             GameObject.Find("tankRed").GetComponent<playerStats>().ChangeHealth(damage);
 
         }
@@ -79,8 +81,8 @@ public class behaviourBullet : MonoBehaviour {
         //Destroy(GameObject.Find("explosion002anim"));
         GameManager.instance.player = GameManager.instance.player * -1;
 
-        print("player 1: " + GameManager.instance.health1);
-        print("player 2: " + GameManager.instance.health2);
+        //print("player 1: " + GameManager.instance.health1);
+        //print("player 2: " + GameManager.instance.health2);
     }
 
     private void FixedUpdate()
