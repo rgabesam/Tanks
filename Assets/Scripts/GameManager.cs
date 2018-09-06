@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour {
 
         DontDestroyOnLoad(gameObject);
         boardScript = GetComponent<BoardManager>();
+        playerOne = GameObject.FindGameObjectWithTag("player1");
+        playerTwo = GameObject.FindGameObjectWithTag("player2");
         //InitGame();
         //playerOne = GameObject.Find("tankGreen");
         //playerTwo = GameObject.Find("tankRed");
@@ -42,11 +44,39 @@ public class GameManager : MonoBehaviour {
         {
             if (playerOne != null || playerTwo != null)
             {
-                float horizontal = Input.GetAxis("Horizontal");
-                float vertical = Input.GetAxis("Vertical");
+                float horizontal;//= Input.GetAxis("Horizontal");
+                float vertical;// = Input.GetAxis("Vertical");
+                //print(horizontal);
+                //print(vertical);
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    horizontal = -1;
+                }
+                else if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    horizontal = 1;
+                }
+                else
+                {
+                    horizontal = 0;
+                }
+
+                if (Input.GetKey(KeyCode.UpArrow))
+                {
+                    vertical = 1;
+                }
+                else if (Input.GetKey(KeyCode.DownArrow))
+                {
+                    vertical = -1;
+                }
+                else
+                {
+                    vertical = 0;
+                }
+
                 if (player == 1)
                 {
-                    playerOne.GetComponent<tank_move>().Movement(horizontal);
+                    playerOne.GetComponent<tank_move>().Movement(horizontal); 
                     playerOne.GetComponentInChildren<canon_move>().vertical = vertical;
                     if (Input.GetKeyDown("space"))
                     {

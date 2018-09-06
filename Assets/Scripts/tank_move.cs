@@ -6,33 +6,70 @@ using UnityEngine.UI;
 public class tank_move : MonoBehaviour {
 
     private Rigidbody2D myRigidbody;
-    public Text winText;
+    public Collider2D tankCollider;
+    public GameObject tank;
+    public GameObject pivotTank;
+    float normalX;
+    float normalY;
 
 	// Use this for initialization
 	void Start ()
     {
-        myRigidbody = GetComponent<Rigidbody2D>();
+        //myRigidbody = GetComponent<Rigidbody2D>();
+        if(GameManager.instance.player == 1)
+        {
+            tank = GameObject.Find("playerOne");
+            pivotTank = GameObject.Find("tankGreenPivot");
+        }
+        else
+        {
+            tank = GameObject.Find("playeTwo");
+            pivotTank = GameObject.Find("tankRedPivot");
+        }
+
+        myRigidbody = tank.GetComponent<Rigidbody2D>();
+        tankCollider = tank.GetComponent<CircleCollider2D>();
+        
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         if (gameObject.GetComponent<Transform>().position.y < -5)
         {
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<endOfGame>().EndOfGame(gameObject.name);
             Destroy(gameObject);
             
-            
         }
-        //float horizontal = Input.GetAxis("Horizontal");
-        // Movement(horizontal);
-		
-	}
+        if (GameManager.instance.player == 1)
+        {
+            tank = GameObject.Find("playerOne");
+            pivotTank = GameObject.Find("tankGreenPivot");
+        }
+        else
+        {
+            tank = GameObject.Find("playerTwo");
+            pivotTank = GameObject.Find("tankRedPivot");
+        }
+        myRigidbody = tank.GetComponent<Rigidbody2D>();
+        tankCollider = tank.GetComponent<CircleCollider2D>();
+
+    }
 
     public void Movement(float horizontal)
     {
-        myRigidbody.velocity = new Vector2(horizontal, myRigidbody.velocity.y);
-        //myRigidbody.canon.Transform = (myRigidbody.canon.Transform.x, myRigidbody.canon.Transform.y, myRigidbody.canon.Transform.z +vertical);
+        RaycastHit2D[] results = new RaycastHit2D[1];
+        tankCollider.Raycast(Vector2.down, results);
+        normalX = results[0].normal.x;
+        normalY = results[0].normal.y;
+        float angle = (Mathf.Atan( normalY / normalX) * 180 / Mathf.PI) ;
+        if (angle < 0)
+            angle = angle + 180; //tohle aby se tank naklanel podle terenu, ne podle normaly terenu
+
+        pivotTank.transform.rotation = Quaternion.Euler(0, 0, angle -90);
+
+
+        myRigidbody.velocity = new Vector2(horizontal * 1.5f, myRigidbody.velocity.y);
 
     }
     

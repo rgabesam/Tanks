@@ -7,6 +7,8 @@ TagManager:
   - Structures
   - player1
   - player2
+  - Undefined
+  - bullet
   layers:
   - Default
   - TransparentFX
