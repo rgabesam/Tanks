@@ -8,6 +8,7 @@ public class canon_move : MonoBehaviour {
     private float tiltAngle = 60.0f;
     private float smooth = 8f;
     private float tiltAroundZ = 0;
+    public int player;
 
 
     // Use this for initialization
@@ -20,7 +21,7 @@ public class canon_move : MonoBehaviour {
         //float vertical = Input.GetAxis("Vertical");
         //print(vertical);
         //print(tiltAroundZ);
-        if(GameManager.instance.player == 1)
+        if(player == 1)
         {
             if (tiltAroundZ == 60)
                 tiltAroundZ--;
@@ -34,7 +35,7 @@ public class canon_move : MonoBehaviour {
 
             }
         }
-        else if(GameManager.instance.player == -1)
+        else if(player == -1)
         {
             if (tiltAroundZ == -60)
                 tiltAroundZ++;
@@ -50,8 +51,7 @@ public class canon_move : MonoBehaviour {
         }
 
         
-        //Quaternion canon = Quaternion.Euler(0, 0, tiltAroundZ);
-        //transform.rotation = Quaternion.Slerp(transform.rotation, canon, Time.deltaTime * smooth );
+        
     }
    
 }

@@ -14,25 +14,25 @@ public class endOfGame : MonoBehaviour {
 
     void Start()
     {
-        playerOne = GameObject.FindGameObjectWithTag("player1");
-        playerTwo = GameObject.FindGameObjectWithTag("player2");
+        playerOne = GameObject.Find("playerOne");
+        playerTwo = GameObject.Find("playerTwo");
 
     }
 
     public void EndOfGame(string name)
     {
 
-        if (name == "tankGreen")
+        if (name == "playerOne")
         {
             Instantiate(explosionOfTank, playerOne.transform.position, playerOne.transform.rotation);
             winText.text = "PLAYER 2 WINS";
         }
-        else if (name == "tankRed")
+        else if (name == "playerTwo")
         {
             Instantiate(explosionOfTank, playerTwo.transform.position, playerTwo.transform.rotation);
             winText.text = "PLAYER 1 WINS";
         }
         GameManager.instance.inGame = false;
-        GameManager.instance.player = 1;
+        //GameManager.instance.player = 1;
     }
 }

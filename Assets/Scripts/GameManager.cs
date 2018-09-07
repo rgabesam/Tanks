@@ -31,84 +31,26 @@ public class GameManager : MonoBehaviour {
         boardScript = GetComponent<BoardManager>();
         playerOne = GameObject.FindGameObjectWithTag("player1");
         playerTwo = GameObject.FindGameObjectWithTag("player2");
-        //InitGame();
-        //playerOne = GameObject.Find("tankGreen");
-        //playerTwo = GameObject.Find("tankRed");
+        InitGame();
+        
 
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if (inGame)
-        {
-            if (playerOne != null || playerTwo != null)
-            {
-                float horizontal;//= Input.GetAxis("Horizontal");
-                float vertical;// = Input.GetAxis("Vertical");
-                //print(horizontal);
-                //print(vertical);
-                if (Input.GetKey(KeyCode.LeftArrow))
-                {
-                    horizontal = -1;
-                }
-                else if (Input.GetKey(KeyCode.RightArrow))
-                {
-                    horizontal = 1;
-                }
-                else
-                {
-                    horizontal = 0;
-                }
 
-                if (Input.GetKey(KeyCode.UpArrow))
-                {
-                    vertical = 1;
-                }
-                else if (Input.GetKey(KeyCode.DownArrow))
-                {
-                    vertical = -1;
-                }
-                else
-                {
-                    vertical = 0;
-                }
+    
 
-                if (player == 1)
-                {
-                    playerOne.GetComponent<tank_move>().Movement(horizontal); 
-                    playerOne.GetComponentInChildren<canon_move>().vertical = vertical;
-                    if (Input.GetKeyDown("space"))
-                    {
-                        playerOne.GetComponentInChildren<fire>().Fire();
-                    }
-                }
-                else if (player == -1)
-                {
-                    playerTwo.GetComponent<tank_move>().Movement(horizontal);
-                    playerTwo.GetComponentInChildren<canon_move>().vertical = vertical;
-                    if (Input.GetKeyDown("space"))
-                    {
-                        playerTwo.GetComponentInChildren<fire>().Fire();
-                    }
-                }
-                
-            }
-            else
-            {
-                playerOne = GameObject.FindGameObjectWithTag("player1");
-                playerTwo = GameObject.FindGameObjectWithTag("player2");
-            }
-            
-        }
-
+    // Update is called once per frame
+    void Update () {
+        
         
     }
 
     
 
-    void InitGame()
+    public void InitGame()
     {
+        //playerOne = GameObject.FindGameObjectWithTag("player1");
+        //playerTwo = GameObject.FindGameObjectWithTag("player2");
         //boardScript.SetupScene(level);
     }
 }

@@ -12,9 +12,11 @@ public class behaviourBullet : MonoBehaviour {
     private GameObject tank;
     public int damage;
     public Slider slider;
+    public int player;
 
     // Use this for initialization
     void Start () {
+        //vypocet strely
         slider = GameObject.Find("navigationPanel").GetComponentInChildren<Slider>();
 
         float forceLength = slider.value;
@@ -22,21 +24,17 @@ public class behaviourBullet : MonoBehaviour {
         float forceY;
         Vector3 axis = Vector3.zero;
         float angle = 0.0f;
-        if (GameManager.instance.player == 1)
+        if (player == 1)
         {
             tank = GameObject.Find("tankGreen");
         }
-        else if (GameManager.instance.player == -1)
+        else if (player == -1)
         {
             tank = GameObject.Find("tankRed");
         }
         tank.transform.GetChild(0).GetComponent<Transform>().rotation.ToAngleAxis(out angle, out axis);
-        //print(canon.GetComponent<Transform>().rotation.z);
-        forceY = GameManager.instance.player * forceLength * Mathf.Sin(angle * Mathf.PI / 180) * Mathf.Sign(tank.transform.GetChild(0).GetComponent<Transform>().rotation.z);
-        forceX = Mathf.Sqrt(forceLength * forceLength - forceY * forceY) * GameManager.instance.player;
-        //print(angle);
-        //print(forceY);
-        //print(forceX);
+        forceY = player * forceLength * Mathf.Sin(angle * Mathf.PI / 180) * Mathf.Sign(tank.transform.GetChild(0).GetComponent<Transform>().rotation.z);
+        forceX = Mathf.Sqrt(forceLength * forceLength - forceY * forceY) * player;
         time = 0;
         //bool fired = true;
         constForce = gameObject.GetComponent<ConstantForce2D>();
@@ -45,28 +43,36 @@ public class behaviourBullet : MonoBehaviour {
     
     // Update is called once per frame
     void Update() {
+        if (gameObject.GetComponent<Transform>().position.y < -5)     //kontroluju jestli tank nespadl na nektere z map do propasti
+        {
+            allowFire();
+            Destroy(gameObject);
+        }
+            
 
-        
-       
-	}
+    }
     
     void OnCollisionEnter2D(Collision2D collision)
     {
         ContactPoint2D contact = collision.contacts[0];
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
         Vector3 pos = contact.point;
+        allowFire();
         Destroy(gameObject);
         Instantiate(explosion, pos, rot);
-        if (GameManager.instance.player == 1)
-        {
-            GameObject.Find("tankGreen").GetComponentInChildren<fire>().fired = false;
-        }
-        else if (GameManager.instance.player == -1)
-        {
-            GameObject.Find("tankRed").GetComponentInChildren<fire>().fired = false;
-        }
-        GameManager.instance.player = GameManager.instance.player * -1;
+        
+    }
 
+    public void allowFire() //odblokuje strelbu danemu hraci
+    {
+        if(player == 1)
+        {
+            GameObject.Find("playerOne").GetComponent<controllerOne>().fired = false;
+        }
+        else
+        {
+            GameObject.Find("playerTwo").GetComponent<controllerTwo>().fired = false;
+        }
     }
 
     private void FixedUpdate()

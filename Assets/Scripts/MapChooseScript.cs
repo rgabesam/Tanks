@@ -9,8 +9,6 @@ public class MapChooseScript : MonoBehaviour {
     public void PlayGame(string s)
     {
         SceneManager.LoadScene(s);
-        GameManager.instance.inGame = true;
-        
     }
 
 

@@ -101,8 +101,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4186853429741478}
-  - component: {fileID: 114018708131704322}
-  - component: {fileID: 114067263813880668}
   - component: {fileID: 60128583038107904}
   - component: {fileID: 114004889425807212}
   m_Layer: 0
@@ -172,6 +170,9 @@ GameObject:
   - component: {fileID: 4727475538982800}
   - component: {fileID: 50268346327901664}
   - component: {fileID: 58022404425806300}
+  - component: {fileID: 114026272653702564}
+  - component: {fileID: 114354413308801864}
+  - component: {fileID: 114692736654315022}
   m_Layer: 0
   m_Name: playerOne
   m_TagString: Untagged
@@ -260,7 +261,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1936927560556308}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.5237103, y: 1.4360318, z: 1.1744787}
+  m_LocalPosition: {x: -6.45, y: -2.25, z: 1.1744787}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4420474080740580}
@@ -418,7 +419,7 @@ PolygonCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -456,7 +457,7 @@ PolygonCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -561,36 +562,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   explosion: {fileID: 1694102470933480, guid: 87e735f06239e5c40a0102935082936f, type: 2}
---- !u!114 &114018708131704322
+  player: {fileID: 1936927560556308}
+--- !u!114 &114026272653702564
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1518231444980680}
+  m_GameObject: {fileID: 1936927560556308}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae1ef4366bf869a4abe74342bf2b1937, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ed6e5b2dcc89284aa47d58dc7ec28af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tankCollider: {fileID: 0}
-  tank: {fileID: 0}
-  pivotTank: {fileID: 0}
---- !u!114 &114067263813880668
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1518231444980680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1e003375306ae34d922031197843414, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 224740699034553566}
-  healthFill: {fileID: 114962832562933642}
-  currentHealth: 100
-  maxHealth: 100
-  winText: {fileID: 0}
+  fired: 0
 --- !u!114 &114075721387025952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -634,6 +618,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114354413308801864
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1936927560556308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1ef4366bf869a4abe74342bf2b1937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankCollider: {fileID: 0}
+  pivotTank: {fileID: 1696078435848300}
 --- !u!114 &114485670534393772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -660,6 +657,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vertical: 0
+  player: 0
+--- !u!114 &114692736654315022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1936927560556308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e003375306ae34d922031197843414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 224740699034553566}
+  healthFill: {fileID: 114962832562933642}
+  currentHealth: 100
+  maxHealth: 100
+  winText: {fileID: 0}
 --- !u!114 &114762733261287044
 MonoBehaviour:
   m_ObjectHideFlags: 1

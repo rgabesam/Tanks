@@ -65,6 +65,8 @@
     <Compile Include="Assets\Scripts\BoardManager.cs" />
     <Compile Include="Assets\Scripts\CameraScreenResolution.cs" />
     <Compile Include="Assets\Scripts\canon_move.cs" />
+    <Compile Include="Assets\Scripts\controllerOne.cs" />
+    <Compile Include="Assets\Scripts\controllerTwo.cs" />
     <Compile Include="Assets\Scripts\damageControll.cs" />
     <Compile Include="Assets\Scripts\deleteObject.cs" />
     <Compile Include="Assets\Scripts\endOfGame.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="Assets\Scripts\MapChooseScript.cs" />
     <Compile Include="Assets\Scripts\playerStats.cs" />
     <Compile Include="Assets\Scripts\shotPower.cs" />
+    <Compile Include="Assets\Scripts\startGame.cs" />
     <Compile Include="Assets\Scripts\tank_move.cs" />
     <None Include="Assets\stg_basic_pics\document_and_picturelist\readme.txt" />
     <None Include="Assets\read me.txt" />

@@ -15,8 +15,13 @@ public class Loader : MonoBehaviour {
         //GameManager.instance.playerTwo = GameObject.Find("tankRed");
 
     }
-	
-	public void LoadMainMenu()
+
+    void Start()
+    {
+        
+    }
+
+    public void LoadMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
         GameManager.instance.inGame = false;

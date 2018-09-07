@@ -33,14 +33,12 @@ public class fire : MonoBehaviour {
         */
 	}
 
-    public void Fire()
+    public void Fire(int player)
     {
-        if (!fired)
-        {
-            fired = true;
-            GameObject g;
-            g = Instantiate(bullet, canon.transform.position, canon.transform.rotation);
-        }
+        fired = true;
+        GameObject g;
+        g = Instantiate(bullet, canon.transform.position, canon.transform.rotation);
+        g.GetComponent<behaviourBullet>().player = player;
         
     }
 }
