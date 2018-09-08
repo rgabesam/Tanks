@@ -11,7 +11,4 @@ public class startGame : MonoBehaviour {
         GameManager.instance.inGame = true;
     }
 	
-	void Update () {
-		
-	}
 }

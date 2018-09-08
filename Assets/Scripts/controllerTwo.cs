@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class controllerTwo : MonoBehaviour
 {  
@@ -8,8 +9,13 @@ public class controllerTwo : MonoBehaviour
     float vertical;
     public bool fired = false;
     public const int player = -1;
-    
-    
+    public Transform shotPower;     //ukazatel sily strelby - je nabindovany v IDE
+    public Slider powerFill;
+    public float power = 300;
+    private bool rising = true;
+    private float powerPerSec = 150;
+
+
     // Use this for initialization
     void Start()
     {
@@ -49,11 +55,39 @@ public class controllerTwo : MonoBehaviour
         gameObject.GetComponentInChildren<canon_move>().vertical = vertical;
 
         //strelba
-        if (Input.GetKeyDown(KeyCode.RightControl) && !fired)
+        if (Input.GetKey(KeyCode.RightControl) && !fired)   //cim dyl drzi tim vetsi silu da strele
         {
-            fired = true;
-            gameObject.GetComponentInChildren<fire>().Fire(player);
+            if(rising)
+            {
+                power = power + (powerPerSec * Time.deltaTime);
+                if (power >= 600)
+                {
+                    rising = false;
+                    power = 600;
+                }
+            }
+            else if (!rising)
+            {
+                power = power - (powerPerSec * Time.deltaTime);
+                if (power <= 300)
+                {
+                    rising = true;
+                    power = 300;
+                }
+            }
         }
 
+        if (Input.GetKeyUp(KeyCode.RightControl) && !fired)
+        {
+            fired = true;
+            gameObject.GetComponentInChildren<fire>().Fire(player, power);
+            power = 300;  //zpet na 300 coz je vychozi
+        }
+        SetShotSlider();
+    }
+
+    void SetShotSlider()
+    {
+        powerFill.value = power;
     }
 }

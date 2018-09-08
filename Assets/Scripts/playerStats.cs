@@ -13,12 +13,6 @@ public class playerStats : MonoBehaviour {
     public int maxHealth;
     public Text winText;
 
-
-
-
-    void Start () {
-		
-	}
 	
 	void Update () {
 		if (currentHealth <= 0)

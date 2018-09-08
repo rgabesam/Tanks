@@ -17,28 +17,16 @@ public class fire : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        /*
-        if (Input.GetKeyDown("space"))
-		{
-            if (!fired)
-            {
-                //print("fired");
-               
-                //rb = g.GetComponent<Rigidbody2D>();
-                //rb.velocity = new Vector3(10f,0f,0f);
-            }
-            
-            
-		}
-        */
+       
 	}
 
-    public void Fire(int player)
+    public void Fire(int player, float power)
     {
         fired = true;
         GameObject g;
         g = Instantiate(bullet, canon.transform.position, canon.transform.rotation);
         g.GetComponent<behaviourBullet>().player = player;
-        
+        g.GetComponent<behaviourBullet>().forceLength = power;
+
     }
 }

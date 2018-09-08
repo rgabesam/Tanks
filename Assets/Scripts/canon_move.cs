@@ -18,9 +18,7 @@ public class canon_move : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        //float vertical = Input.GetAxis("Vertical");
-        //print(vertical);
-        //print(tiltAroundZ);
+
         if(player == 1)
         {
             if (tiltAroundZ == 60)

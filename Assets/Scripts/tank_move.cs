@@ -15,23 +15,8 @@ public class tank_move : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        //myRigidbody = GetComponent<Rigidbody2D>();
-        /*if(GameManager.instance.player == 1)
-        {
-            tank = GameObject.Find("playerOne");
-            pivotTank = GameObject.Find("tankGreenPivot");
-        }
-        else
-        {
-            tank = GameObject.Find("playeTwo");
-            pivotTank = GameObject.Find("tankRedPivot");
-        }
-        */
         myRigidbody = gameObject.GetComponent<Rigidbody2D>();
         tankCollider = gameObject.GetComponent<CircleCollider2D>();
-       
-        
-
     }
 
     // Update is called once per frame

@@ -11,14 +11,6 @@ public class Loader : MonoBehaviour {
 	void Awake () {
         if (GameManager.instance == null)
             Instantiate(gameManager);
-        //GameManager.instance.playerOne = GameObject.Find("tankGreen");
-        //GameManager.instance.playerTwo = GameObject.Find("tankRed");
-
-    }
-
-    void Start()
-    {
-        
     }
 
     public void LoadMainMenu()

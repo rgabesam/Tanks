@@ -33,6 +33,5 @@ public class endOfGame : MonoBehaviour {
             winText.text = "PLAYER 1 WINS";
         }
         GameManager.instance.inGame = false;
-        //GameManager.instance.player = 1;
     }
 }

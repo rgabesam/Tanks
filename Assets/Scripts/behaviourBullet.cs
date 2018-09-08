@@ -11,15 +11,11 @@ public class behaviourBullet : MonoBehaviour {
     public GameObject explosion;
     private GameObject tank;
     public int damage;
-    public Slider slider;
     public int player;
+    public float forceLength;
 
     // Use this for initialization
     void Start () {
-        //vypocet strely
-        slider = GameObject.Find("navigationPanel").GetComponentInChildren<Slider>();
-
-        float forceLength = slider.value;
         float forceX;
         float forceY;
         Vector3 axis = Vector3.zero;
@@ -36,7 +32,6 @@ public class behaviourBullet : MonoBehaviour {
         forceY = player * forceLength * Mathf.Sin(angle * Mathf.PI / 180) * Mathf.Sign(tank.transform.GetChild(0).GetComponent<Transform>().rotation.z);
         forceX = Mathf.Sqrt(forceLength * forceLength - forceY * forceY) * player;
         time = 0;
-        //bool fired = true;
         constForce = gameObject.GetComponent<ConstantForce2D>();
         constForce.force = new Vector2(forceX, forceY);
 	}
